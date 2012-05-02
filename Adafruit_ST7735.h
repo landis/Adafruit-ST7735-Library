@@ -110,6 +110,8 @@ class Adafruit_ST7735 : public Adafruit_GFX {
            drawFastHLine(int16_t x, int16_t y, int16_t w, uint16_t color),
            fillRect(int16_t x, int16_t y, int16_t w, int16_t h,
              uint16_t color),
+			drawString(uint16_t x, uint16_t y, char *c, uint16_t color,
+			             uint8_t size=1),
            setRotation(uint8_t r),
            invertDisplay(boolean i);
   uint16_t Color565(uint8_t r, uint8_t g, uint8_t b);

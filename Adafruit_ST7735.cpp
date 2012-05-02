@@ -493,6 +493,19 @@ void Adafruit_ST7735::invertDisplay(boolean i) {
   writecommand(i ? ST7735_INVON : ST7735_INVOFF);
 }
 
+// draw a string from memory
+void Adafruit_ST7735::drawString(uint16_t x, uint16_t y, char *c,
+ uint16_t color, uint8_t size) {
+  while (c[0] != 0) {
+    drawChar(x, y, c[0], color, 0, size);
+    x += size * 6;
+    c++;
+    if (x + 5 >= _width) {
+      y += size * 8;
+      x  = 0;
+    }
+  }
+}
 
 ////////// stuff not actively being used, but kept for posterity
 /*
